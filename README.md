@@ -67,11 +67,14 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 -->
 
 ### **WORK IN PROGRESS**
-* (patricknitsch) Add guide for contributors working with Claude Code (CLAUDE.md)
-* (patricknitsch) Add new SOLECTRUS car sensors for multiple vehicles (`CAR_BATTERY_SOC`, `CAR_MILEAGE`, `CAR_RANGE`, `CAR_CONNECTED`, `CAR_LATITUDE`, `CAR_LONGITUDE`, suffix `_1`–`_5`) (#209)
+
+* (patricknitsch) Add new SOLECTRUS car sensors for multiple vehicles (`CAR_BATTERY_SOC`, `CAR_ODOMETER`, `CAR_RANGE`, `CAR_CONNECTED`, `CAR_LATITUDE`, `CAR_LONGITUDE`, suffix `_1`–`_5`) (#209 and #212)
+* (patricknitsch) Default sensors are sorted into the folders of the HELIOS sensor overview
 * (patricknitsch) New default sensors are added disabled to existing instances on start; deleted ones do not come back
+* (patricknitsch) New sensor option "Write only on change": the value is written when the source changes, with the time of the change (#212)
 * (patricknitsch) Fix DS warning "Tick time budget exceeded": the budget now covers only the evaluation, not the snapshot reads
 * (patricknitsch) Add Node.js 26 in test-and-release.yml
+* (patricknitsch) Add guide for contributors working with Claude Code (CLAUDE.md)
 * (patricknitsch) Update Dependencies
 
 ### 2.0.1 (2026-08-04)
