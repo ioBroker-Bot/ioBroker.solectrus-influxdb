@@ -465,6 +465,7 @@
             disconnected:   'Disconnected',
             lastUpdate:     'Timestamp:',
             staleInput:     'Input without update:',
+            inputTimeout:   'Inputs:',
             maxOf:          'max:',
             legendActive:   'Active',
             legendInternal: 'Internal',
@@ -505,6 +506,7 @@
             disconnected:   'Getrennt',
             lastUpdate:     'Zeitstempel:',
             staleInput:     'Eingang ohne Aktualisierung:',
+            inputTimeout:   'Eingänge:',
             maxOf:          'max:',
             legendActive:   'Aktiv',
             legendInternal: 'Intern',
@@ -943,9 +945,15 @@
         }
     }
 
-    function renderDs(items, states) {
+    function renderDs(items, states, sensors) {
         var grid = document.getElementById('ds-grid');
         grid.innerHTML = '';
+        /* stale inputs per item output id, written by the adapter (alive timeout of the item) */
+        var staleItemInputs = {};
+        var staleItemState = states && states[NS + '.info.staleFormulaInputs'];
+        if (staleItemState && typeof staleItemState.val === 'string') {
+            try { staleItemInputs = JSON.parse(staleItemState.val) || {}; } catch (_) { /* ignore */ }
+        }
         var active = (items || []).filter(function (it) { return it && it.enabled && it.targetId; });
         if (!active.length) {
             var empty = document.createElement('div');
@@ -989,6 +997,18 @@
             } else {
                 valEl.textContent = valText;
             }
+            /* a sensor takes precedence: an item used by an enabled sensor is monitored with the
+               timeout of that sensor (the adapter lists the stale inputs the sensor found) */
+            var usingSensors = (sensors || []).filter(function (sn) {
+                return sn && sn.enabled && sn.sourceState === sid && Number(sn.aliveTimeoutMinutes) > 0;
+            });
+            var usedBySensor = (sensors || []).some(function (sn) { return sn && sn.enabled && sn.sourceState === sid; });
+            var itemTimeoutMin = usedBySensor
+                ? (usingSensors.length ? Number(usingSensors[0].aliveTimeoutMinutes) : 0)
+                : Number(item.aliveTimeoutMinutes) || 0;
+            var itemStaleInputs = itemTimeoutMin > 0 ? staleItemInputs[sid.slice((NS + '.ds.').length)] : null;
+            var hasItemStale = Array.isArray(itemStaleInputs) && itemStaleInputs.length > 0;
+            if (hasVal && hasItemStale) valEl.style.color = 'var(--color-warning)';
             card.appendChild(valEl);
 
             /* state id + mode badge */
@@ -1019,8 +1039,36 @@
             if (state && state.ts) {
                 var tsEl = document.createElement('div');
                 tsEl.className = 'sensor-card-source';
-                tsEl.textContent = T.lastUpdate + ' ' + new Date(state.ts).toLocaleString();
+                if (itemTimeoutMin > 0) {
+                    /* the item is recalculated on every tick; the timeout applies to its inputs */
+                    tsEl.className += ' sensor-ts-row';
+                    if (hasItemStale) tsEl.style.color = 'var(--color-warning)';
+                    var itemLeftSpan = document.createElement('span');
+                    itemLeftSpan.textContent = T.lastUpdate + ' ' + new Date(state.ts).toLocaleString();
+                    var itemRightSpan = document.createElement('span');
+                    itemRightSpan.className = 'sensor-type-badge';
+                    itemRightSpan.textContent = T.inputTimeout + ' ' + itemTimeoutMin + ' min' +
+                        (usingSensors.length ? ' (' + usingSensors[0].SensorName + ')' : '');
+                    if (hasItemStale) itemRightSpan.style.color = 'var(--color-warning)';
+                    tsEl.appendChild(itemLeftSpan);
+                    tsEl.appendChild(itemRightSpan);
+                } else {
+                    tsEl.textContent = T.lastUpdate + ' ' + new Date(state.ts).toLocaleString();
+                }
                 card.appendChild(tsEl);
+            }
+
+            /* stale inputs of this item */
+            if (hasItemStale) {
+                itemStaleInputs.forEach(function (inp) {
+                    var inpEl = document.createElement('div');
+                    inpEl.className = 'sensor-card-source';
+                    inpEl.style.color = 'var(--color-warning)';
+                    inpEl.textContent = T.staleInput + ' ' + inp.id +
+                        (inp.ts ? ' (' + new Date(inp.ts).toLocaleString() + ')' : '');
+                    inpEl.title = inp.id;
+                    card.appendChild(inpEl);
+                });
             }
 
             grid.appendChild(card);
@@ -1040,7 +1088,7 @@
 
         if (config.enableDataSolectrus) {
             document.getElementById('tab-ds-btn').style.display = '';
-            renderDs(config.dsItems, states);
+            renderDs(config.dsItems, states, config.sensors);
         } else {
             document.getElementById('tab-ds-btn').style.display = 'none';
             /* if Formula Engine tab was active, switch back to InfluxDB tab */

@@ -339,5 +339,9 @@
     "Electric Car 4": "Electric Car 4",
     "Electric Car 5": "Electric Car 5",
     "writeOnChangeLabel": "Write only on change, with the time of the change",
-    "writeOnChangeHint": "For values that change rarely, such as the data of a car: a point is written whenever the source state changes, not in the collect interval, and it gets the time of the change (last changed) instead of the current time. A source that repeats the same value adds no point."
+    "writeOnChangeHint": "For values that change rarely, such as the data of a car: a point is written whenever the source state changes, not in the collect interval, and it gets the time of the change (last changed) instead of the current time. A source that repeats the same value adds no point.",
+    "inputMonitoringLabel": "Alive",
+    "inputMonitoringTooltip": "Monitor this input with the alive timeout. Turn it off for inputs that are only written on change; the value is still used in the calculation.",
+    "sourceMonitoringLabel": "Monitor source state (Alive)",
+    "formulaAliveTimeoutHint": "Monitors the inputs of this value. If an enabled sensor uses this value, its timeout applies. 0 = disabled."
 }

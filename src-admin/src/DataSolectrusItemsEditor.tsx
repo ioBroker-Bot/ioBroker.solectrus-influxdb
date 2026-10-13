@@ -61,6 +61,7 @@ const UI_VERSION = '2026-08-03 20260803-1';
 			clamp: false,
 			min: '',
 			max: '',
+			aliveTimeoutMinutes: 0,
 		};
 		return ensureTitle(item, t);
 	}
@@ -3128,6 +3129,27 @@ export default function DataSolectrusItemsEditor(props) {
 											),
 											React.createElement(
 												'label',
+												{
+													style: {
+														display: 'flex',
+														alignItems: 'center',
+														gap: 6,
+														marginTop: 6,
+														fontSize: 12,
+														color: colors.textMuted,
+														cursor: 'pointer',
+													},
+													title: t('inputMonitoringTooltip'),
+												},
+												React.createElement('input', {
+													type: 'checkbox',
+													checked: !selectedItem.noMonitoring,
+													onChange: e => updateSelected('noMonitoring', !e.target.checked),
+												}),
+												React.createElement('span', null, t('sourceMonitoringLabel')),
+											),
+											React.createElement(
+												'label',
 												{ style: labelStyle },
 												t('JSONPath (optional)'),
 											),
@@ -3169,7 +3191,7 @@ export default function DataSolectrusItemsEditor(props) {
 																key: idx,
 																style: {
 																	display: 'grid',
-																	gridTemplateColumns: '140px 1fr 160px 90px 90px',
+																	gridTemplateColumns: '140px 1fr 160px 130px 90px',
 																	gap: 8,
 																	alignItems: 'center',
 																	marginTop: 8,
@@ -3220,29 +3242,58 @@ export default function DataSolectrusItemsEditor(props) {
 																	},
 																},
 																React.createElement(
-																	'label',
-																	{
-																		style: {
-																			display: 'flex',
-																			alignItems: 'center',
-																			gap: 6,
-																			fontSize: 11,
-																			color: colors.textMuted,
-																			cursor: 'pointer',
+																	'div',
+																	{ style: { display: 'flex', alignItems: 'center', gap: 10 } },
+																	React.createElement(
+																		'label',
+																		{
+																			style: {
+																				display: 'flex',
+																				alignItems: 'center',
+																				gap: 6,
+																				fontSize: 11,
+																				color: colors.textMuted,
+																				cursor: 'pointer',
+																			},
+																			title: t('Clamp input negative to 0'),
 																		},
-																		title: t('Clamp input negative to 0'),
-																	},
-																	React.createElement('input', {
-																		type: 'checkbox',
-																		checked: !!(inp && inp.noNegative),
-																		onChange: e =>
-																			updateInput(
-																				idx,
-																				'noNegative',
-																				!!e.target.checked,
-																			),
-																	}),
-																	React.createElement('span', null, 'neg→0'),
+																		React.createElement('input', {
+																			type: 'checkbox',
+																			checked: !!(inp && inp.noNegative),
+																			onChange: e =>
+																				updateInput(
+																					idx,
+																					'noNegative',
+																					!!e.target.checked,
+																				),
+																		}),
+																		React.createElement('span', null, 'neg→0'),
+																	),
+																	React.createElement(
+																		'label',
+																		{
+																			style: {
+																				display: 'flex',
+																				alignItems: 'center',
+																				gap: 6,
+																				fontSize: 11,
+																				color: colors.textMuted,
+																				cursor: 'pointer',
+																			},
+																			title: t('inputMonitoringTooltip'),
+																		},
+																		React.createElement('input', {
+																			type: 'checkbox',
+																			checked: !(inp && inp.noMonitoring),
+																			onChange: e =>
+																				updateInput(
+																					idx,
+																					'noMonitoring',
+																					!e.target.checked,
+																				),
+																		}),
+																		React.createElement('span', null, t('inputMonitoringLabel')),
+																	),
 																),
 																renderSelectButton(() =>
 																	setSelectContext({ kind: 'input', index: idx }),
@@ -3706,7 +3757,7 @@ export default function DataSolectrusItemsEditor(props) {
 																key: idx,
 																style: {
 																	display: 'grid',
-																	gridTemplateColumns: '140px 1fr 160px 90px 90px',
+																	gridTemplateColumns: '140px 1fr 160px 130px 90px',
 																	gap: 8,
 																	alignItems: 'center',
 																	marginTop: 8,
@@ -3757,29 +3808,58 @@ export default function DataSolectrusItemsEditor(props) {
 																	},
 																},
 																React.createElement(
-																	'label',
-																	{
-																		style: {
-																			display: 'flex',
-																			alignItems: 'center',
-																			gap: 6,
-																			fontSize: 11,
-																			color: colors.textMuted,
-																			cursor: 'pointer',
+																	'div',
+																	{ style: { display: 'flex', alignItems: 'center', gap: 10 } },
+																	React.createElement(
+																		'label',
+																		{
+																			style: {
+																				display: 'flex',
+																				alignItems: 'center',
+																				gap: 6,
+																				fontSize: 11,
+																				color: colors.textMuted,
+																				cursor: 'pointer',
+																			},
+																			title: t('Clamp input negative to 0'),
 																		},
-																		title: t('Clamp input negative to 0'),
-																	},
-																	React.createElement('input', {
-																		type: 'checkbox',
-																		checked: !!(inp && inp.noNegative),
-																		onChange: e =>
-																			updateInput(
-																				idx,
-																				'noNegative',
-																				!!e.target.checked,
-																			),
-																	}),
-																	React.createElement('span', null, 'neg→0'),
+																		React.createElement('input', {
+																			type: 'checkbox',
+																			checked: !!(inp && inp.noNegative),
+																			onChange: e =>
+																				updateInput(
+																					idx,
+																					'noNegative',
+																					!!e.target.checked,
+																				),
+																		}),
+																		React.createElement('span', null, 'neg→0'),
+																	),
+																	React.createElement(
+																		'label',
+																		{
+																			style: {
+																				display: 'flex',
+																				alignItems: 'center',
+																				gap: 6,
+																				fontSize: 11,
+																				color: colors.textMuted,
+																				cursor: 'pointer',
+																			},
+																			title: t('inputMonitoringTooltip'),
+																		},
+																		React.createElement('input', {
+																			type: 'checkbox',
+																			checked: !(inp && inp.noMonitoring),
+																			onChange: e =>
+																				updateInput(
+																					idx,
+																					'noMonitoring',
+																					!e.target.checked,
+																				),
+																		}),
+																		React.createElement('span', null, t('inputMonitoringLabel')),
+																	),
 																),
 																renderSelectButton(() =>
 																	setSelectContext({ kind: 'input', index: idx }),
@@ -4067,6 +4147,39 @@ export default function DataSolectrusItemsEditor(props) {
 											),
 										)
 									: null,
+								React.createElement(
+									'div',
+									{ style: rowStyle2 },
+									React.createElement(
+										'div',
+										null,
+										React.createElement('label', { style: labelStyle }, t('aliveTimeoutMinutesLabel')),
+										React.createElement('input', {
+											style: inputStyle,
+											type: 'number',
+											min: 0,
+											value:
+												editItem.aliveTimeoutMinutes !== undefined &&
+												editItem.aliveTimeoutMinutes !== null
+													? editItem.aliveTimeoutMinutes
+													: '',
+											onChange: e => setDraftField('aliveTimeoutMinutes', e.target.value),
+											onBlur: e => {
+												const parsed = Number(e.target.value);
+												updateSelected(
+													'aliveTimeoutMinutes',
+													Number.isFinite(parsed) && parsed > 0 ? parsed : 0,
+												);
+											},
+											placeholder: '0',
+										}),
+										React.createElement(
+											'div',
+											{ style: { fontSize: 12, color: colors.textMuted, marginTop: 2 } },
+											t('formulaAliveTimeoutHint'),
+										),
+									),
+								),
 								renderFormulaBuilderModal(),
 								renderStatePicker(),
 							)

@@ -339,5 +339,9 @@
     "Electric Car 4": "E-Auto 4",
     "Electric Car 5": "E-Auto 5",
     "writeOnChangeLabel": "Nur bei Änderung schreiben, mit dem Zeitpunkt der Änderung",
-    "writeOnChangeHint": "Für selten wechselnde Werte wie die Daten eines Autos: Ein Wert wird geschrieben, sobald sich der Quellstatus ändert, nicht im Abfrageintervall, und er erhält den Zeitpunkt der Änderung (Zuletzt geändert) statt der aktuellen Zeit. Liefert die Quelle denselben Wert erneut, entsteht kein neuer Wert."
+    "writeOnChangeHint": "Für selten wechselnde Werte wie die Daten eines Autos: Ein Wert wird geschrieben, sobald sich der Quellstatus ändert, nicht im Abfrageintervall, und er erhält den Zeitpunkt der Änderung (Zuletzt geändert) statt der aktuellen Zeit. Liefert die Quelle denselben Wert erneut, entsteht kein neuer Wert.",
+    "inputMonitoringLabel": "Alive",
+    "inputMonitoringTooltip": "Diesen Eingang mit dem Alive-Timeout überwachen. Für Eingänge, die nur bei Änderung geschrieben werden, ausschalten; der Wert wird weiterhin berechnet.",
+    "sourceMonitoringLabel": "Quell-State überwachen (Alive)",
+    "formulaAliveTimeoutHint": "Überwacht die Eingänge dieses Werts. Nutzt ein aktiver Sensor diesen Wert, gilt dessen Timeout. 0 = deaktiviert."
 }

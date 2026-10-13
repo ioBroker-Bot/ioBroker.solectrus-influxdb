@@ -339,5 +339,9 @@
     "Electric Car 4": "Carro elétrico 4",
     "Electric Car 5": "Carro elétrico 5",
     "writeOnChangeLabel": "Gravar apenas na alteração, com a hora da alteração",
-    "writeOnChangeHint": "Para valores que mudam raramente, como os dados de um carro: um valor é gravado sempre que o estado de origem muda, não no intervalo de recolha, e recebe a hora da alteração em vez da hora atual. Uma origem que repete o mesmo valor não acrescenta nenhum ponto."
+    "writeOnChangeHint": "Para valores que mudam raramente, como os dados de um carro: um valor é gravado sempre que o estado de origem muda, não no intervalo de recolha, e recebe a hora da alteração em vez da hora atual. Uma origem que repete o mesmo valor não acrescenta nenhum ponto.",
+    "inputMonitoringLabel": "Alive",
+    "inputMonitoringTooltip": "Monitorizar esta entrada com o tempo limite de atividade. Desative para entradas que só são escritas na alteração; o valor continua a ser usado no cálculo.",
+    "sourceMonitoringLabel": "Monitorizar estado de origem (Alive)",
+    "formulaAliveTimeoutHint": "Monitoriza as entradas deste valor. Se um sensor ativo usar este valor, aplica-se o tempo limite dele. 0 = desativado."
 }

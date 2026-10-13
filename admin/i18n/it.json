@@ -339,5 +339,9 @@
     "Electric Car 4": "Auto elettrica 4",
     "Electric Car 5": "Auto elettrica 5",
     "writeOnChangeLabel": "Scrivi solo in caso di modifica, con l'ora della modifica",
-    "writeOnChangeHint": "Per valori che cambiano raramente, come i dati di un'auto: un valore viene scritto ogni volta che lo stato sorgente cambia, non nell'intervallo di raccolta, e riceve l'ora della modifica invece dell'ora corrente. Una sorgente che ripete lo stesso valore non aggiunge alcun punto."
+    "writeOnChangeHint": "Per valori che cambiano raramente, come i dati di un'auto: un valore viene scritto ogni volta che lo stato sorgente cambia, non nell'intervallo di raccolta, e riceve l'ora della modifica invece dell'ora corrente. Una sorgente che ripete lo stesso valore non aggiunge alcun punto.",
+    "inputMonitoringLabel": "Alive",
+    "inputMonitoringTooltip": "Monitora questo input con il timeout di attività. Disattivalo per gli input scritti solo in caso di modifica; il valore viene comunque usato nel calcolo.",
+    "sourceMonitoringLabel": "Monitora stato sorgente (Alive)",
+    "formulaAliveTimeoutHint": "Monitora gli input di questo valore. Se un sensore attivo usa questo valore, vale il suo timeout. 0 = disattivato."
 }
