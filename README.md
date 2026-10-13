@@ -66,7 +66,7 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (patricknitsch) Alive monitoring of sensors fed by the formula engine now also checks the input values of the formula
+* (patricknitsch) Alive monitoring of sensors fed by the formula engine now also checks the input values of the formula; stale inputs are marked in the overview tab
 
 ### 2.1.0 (2026-10-12)
 

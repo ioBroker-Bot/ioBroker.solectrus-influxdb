@@ -480,6 +480,8 @@ Ist die Quelle eines Sensors ein Datenpunkt der Formel-Engine (`ds.*`), werden z
 Sensor "HOUSE_POWER → modbus.0.inputRegisters.grid": no update since 4/5/2026, 6:30:00 PM (update expected by 4/5/2026, 7:30:00 PM)
 ```
 
+Im **Tab** wird die Sensorkarte dann ebenfalls **orange** markiert und jeder betroffene Eingang mit seinem letzten Zeitstempel aufgeführt (*Eingang ohne Aktualisierung*). Die Liste der veralteten Eingänge steht außerdem als JSON im State `solectrus-influxdb.X.info.staleInputs`.
+
 Die Warnung wird pro Sensor höchstens einmal pro Timeout-Periode wiederholt, damit das Log nicht überflutet wird. Setze den Timeout auf `0`, um die Prüfung für einen einzelnen Sensor zu deaktivieren (nur im Expertenmodus). Neu angelegte Sensoren haben standardmäßig einen Timeout von `60` Minuten. Der Timeout muss größer sein als das Aktualisierungsintervall des jeweiligen Quelladapters.
 
 ### Werteüberwachung (Maximalwert)

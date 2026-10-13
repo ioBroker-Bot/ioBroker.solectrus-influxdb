@@ -71,6 +71,8 @@ class SolectrusInfluxdb extends utils.Adapter {
 		this.lastUpdateTs = new Map();
 		// Timestamp of the last written point of each "write on change" sensor
 		this.lastWrittenTs = new Map();
+		// Last written value of info.staleInputs (JSON), written only on change
+		this.staleInputsJson = null;
 		// Maps sensor state id → timestamp (ms) when last alive warning was logged
 		this.aliveWarnedAt = new Map();
 		// Maps sensor state id → timestamp (ms) when last alive-timeout notification was sent
