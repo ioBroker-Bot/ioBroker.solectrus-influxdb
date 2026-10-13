@@ -65,8 +65,7 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.2.1 (2026-10-13)
 * (patricknitsch) Release without function. Deploying for 2.2.0 failed.
 
 ### 2.2.0 (2026-10-13)
@@ -97,9 +96,6 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 * (patricknitsch) Log a clear error and set `info.lastError` at startup if the installed ioBroker.admin is below version 8, so an incompatible setup is immediately visible instead of a silent/confusing failure in the config dialog
 * (patricknitsch) Cleanup i18n
 * (copilot) Fix timeout for Backup Manager
-
-### 1.12.0 (2026-07-08)
-* (patricknitsch) Final Release
 
 **Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
 
