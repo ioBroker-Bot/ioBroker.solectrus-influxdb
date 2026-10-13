@@ -342,5 +342,6 @@
     "writeOnChangeHint": "Para valores que mudam raramente, como os dados de um carro: um valor é gravado sempre que o estado de origem muda, não no intervalo de recolha, e recebe a hora da alteração em vez da hora atual. Uma origem que repete o mesmo valor não acrescenta nenhum ponto.",
     "inputMonitoringLabel": "Alive",
     "inputMonitoringTooltip": "Monitorizar esta entrada com o tempo limite de atividade do sensor que usa este valor. Desative para entradas que só são escritas na alteração. O valor continua a ser usado no cálculo.",
-    "sourceMonitoringLabel": "Monitorizar o estado de origem com o tempo limite de atividade do sensor"
+    "sourceMonitoringLabel": "Monitorizar o estado de origem com o tempo limite de atividade do sensor",
+    "formulaAliveTimeoutHint": "Monitoriza as entradas deste valor, mesmo quando nenhum sensor o usa (valor interno). Se uma entrada não for atualizada dentro do tempo limite, é registado um aviso e o valor é marcado na visão geral. Entradas com \"Alive\" desativado não são monitorizadas. 0 = desativado."
 }

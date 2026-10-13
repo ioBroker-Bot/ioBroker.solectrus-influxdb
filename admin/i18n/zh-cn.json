@@ -342,5 +342,6 @@
     "writeOnChangeHint": "适用于很少变化的值，例如汽车数据：每当源状态发生变化时写入一个值，而不是按采集间隔写入，并使用变化时间而不是当前时间。源重复相同的值不会添加新点。",
     "inputMonitoringLabel": "Alive",
     "inputMonitoringTooltip": "使用使用该值的传感器的存活超时来监控此输入。对于仅在变化时写入的输入，请关闭此项。该值仍会用于计算。",
-    "sourceMonitoringLabel": "使用传感器的存活超时监控源状态"
+    "sourceMonitoringLabel": "使用传感器的存活超时监控源状态",
+    "formulaAliveTimeoutHint": "监控此值的输入，即使没有传感器使用它（内部值）。如果某个输入在超时时间内未更新，则记录警告并在概览中标记该值。关闭“Alive”的输入不受监控。0 = 禁用。"
 }

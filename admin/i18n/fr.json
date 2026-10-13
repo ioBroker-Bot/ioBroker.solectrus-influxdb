@@ -342,5 +342,6 @@
     "writeOnChangeHint": "Pour les valeurs qui changent rarement, comme les données d'une voiture : une valeur est écrite à chaque changement de l'état source, et non à l'intervalle de collecte, avec l'heure du changement au lieu de l'heure actuelle. Une source qui répète la même valeur n'ajoute aucun point.",
     "inputMonitoringLabel": "Alive",
     "inputMonitoringTooltip": "Surveiller cette entrée avec le délai d'activité du capteur qui utilise cette valeur. Désactivez-la pour les entrées écrites uniquement lors d'un changement. La valeur reste utilisée dans le calcul.",
-    "sourceMonitoringLabel": "Surveiller l'état source avec le délai d'activité du capteur"
+    "sourceMonitoringLabel": "Surveiller l'état source avec le délai d'activité du capteur",
+    "formulaAliveTimeoutHint": "Surveille les entrées de cette valeur, même si aucun capteur ne l'utilise (valeur interne). Si une entrée n'a pas été mise à jour dans le délai, un avertissement est journalisé et la valeur est marquée dans l'aperçu. Les entrées avec « Alive » désactivé ne sont pas surveillées. 0 = désactivé."
 }

@@ -61,6 +61,7 @@ const UI_VERSION = '2026-08-03 20260803-1';
 			clamp: false,
 			min: '',
 			max: '',
+			aliveTimeoutMinutes: 0,
 		};
 		return ensureTitle(item, t);
 	}
@@ -4138,6 +4139,39 @@ export default function DataSolectrusItemsEditor(props) {
 											),
 										)
 									: null,
+								React.createElement(
+									'div',
+									{ style: rowStyle2 },
+									React.createElement(
+										'div',
+										null,
+										React.createElement('label', { style: labelStyle }, t('aliveTimeoutMinutesLabel')),
+										React.createElement('input', {
+											style: inputStyle,
+											type: 'number',
+											min: 0,
+											value:
+												editItem.aliveTimeoutMinutes !== undefined &&
+												editItem.aliveTimeoutMinutes !== null
+													? editItem.aliveTimeoutMinutes
+													: '',
+											onChange: e => setDraftField('aliveTimeoutMinutes', e.target.value),
+											onBlur: e => {
+												const parsed = Number(e.target.value);
+												updateSelected(
+													'aliveTimeoutMinutes',
+													Number.isFinite(parsed) && parsed > 0 ? parsed : 0,
+												);
+											},
+											placeholder: '0',
+										}),
+										React.createElement(
+											'div',
+											{ style: { fontSize: 12, color: colors.textMuted, marginTop: 2 } },
+											t('formulaAliveTimeoutHint'),
+										),
+									),
+								),
 								renderFormulaBuilderModal(),
 								renderStatePicker(),
 							)
