@@ -343,5 +343,5 @@
     "inputMonitoringLabel": "Alive",
     "inputMonitoringTooltip": "Supervisar esta entrada con el tiempo de espera de actividad del sensor que usa este valor. Desactívelo para entradas que solo se escriben al cambiar. El valor se sigue usando en el cálculo.",
     "sourceMonitoringLabel": "Supervisar el estado de origen con el tiempo de espera de actividad del sensor",
-    "formulaAliveTimeoutHint": "Supervisa las entradas de este valor, incluso si ningún sensor lo usa (valor interno). Si una entrada no se actualiza dentro del tiempo de espera, se registra una advertencia y el valor se marca en la vista general. Las entradas con \"Alive\" desactivado no se supervisan. 0 = desactivado."
+    "formulaAliveTimeoutHint": "Supervisa las entradas de este valor, incluso si ningún sensor lo usa (valor interno). Si una entrada no se actualiza dentro del tiempo de espera, se registra una advertencia y el valor se marca en la vista general. Las entradas con \"Alive\" desactivado no se supervisan. 0 = desactivado. Si un sensor activo usa este valor, solo se aplica el tiempo de espera del sensor."
 }

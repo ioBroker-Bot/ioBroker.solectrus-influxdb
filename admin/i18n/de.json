@@ -343,5 +343,5 @@
     "inputMonitoringLabel": "Alive",
     "inputMonitoringTooltip": "Diesen Eingang mit dem Alive-Timeout des Sensors überwachen, der diesen Wert nutzt. Für Eingänge, die nur bei Änderung geschrieben werden, ausschalten. Der Wert wird weiterhin in der Berechnung verwendet.",
     "sourceMonitoringLabel": "Quell-State mit dem Alive-Timeout des Sensors überwachen",
-    "formulaAliveTimeoutHint": "Überwacht die Eingänge dieses Werts, auch wenn kein Sensor ihn nutzt (interner Wert). Wird ein Eingang innerhalb des Timeouts nicht aktualisiert, wird eine Warnung ins Log geschrieben und der Wert in der Übersicht markiert. Eingänge mit ausgeschaltetem „Alive“ werden nicht überwacht. 0 = deaktiviert."
+    "formulaAliveTimeoutHint": "Überwacht die Eingänge dieses Werts, auch wenn kein Sensor ihn nutzt (interner Wert). Wird ein Eingang innerhalb des Timeouts nicht aktualisiert, wird eine Warnung ins Log geschrieben und der Wert in der Übersicht markiert. Eingänge mit ausgeschaltetem „Alive“ werden nicht überwacht. 0 = deaktiviert. Nutzt ein aktiver Sensor diesen Wert, gilt nur der Timeout des Sensors."
 }

@@ -343,5 +343,5 @@
     "inputMonitoringLabel": "Alive",
     "inputMonitoringTooltip": "使用使用该值的传感器的存活超时来监控此输入。对于仅在变化时写入的输入，请关闭此项。该值仍会用于计算。",
     "sourceMonitoringLabel": "使用传感器的存活超时监控源状态",
-    "formulaAliveTimeoutHint": "监控此值的输入，即使没有传感器使用它（内部值）。如果某个输入在超时时间内未更新，则记录警告并在概览中标记该值。关闭“Alive”的输入不受监控。0 = 禁用。"
+    "formulaAliveTimeoutHint": "监控此值的输入，即使没有传感器使用它（内部值）。如果某个输入在超时时间内未更新，则记录警告并在概览中标记该值。关闭“Alive”的输入不受监控。0 = 禁用。如果有启用的传感器使用此值，则仅适用该传感器的超时。"
 }

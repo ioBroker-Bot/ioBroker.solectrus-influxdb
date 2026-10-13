@@ -343,5 +343,5 @@
     "inputMonitoringLabel": "Alive",
     "inputMonitoringTooltip": "Monitor this input with the alive timeout of the sensor that uses this value. Turn it off for inputs that are only written on change. The value is still used in the calculation.",
     "sourceMonitoringLabel": "Monitor source state with the alive timeout of the sensor",
-    "formulaAliveTimeoutHint": "Monitors the inputs of this value, also when no sensor uses it (internal value). If an input has not been updated within the timeout, a warning is logged and the value is marked in the overview. Inputs with \"Alive\" turned off are not monitored. 0 = disabled."
+    "formulaAliveTimeoutHint": "Monitors the inputs of this value, also when no sensor uses it (internal value). If an input has not been updated within the timeout, a warning is logged and the value is marked in the overview. Inputs with \"Alive\" turned off are not monitored. 0 = disabled. If an enabled sensor uses this value, only the timeout of the sensor applies."
 }

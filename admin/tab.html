@@ -945,7 +945,7 @@
         }
     }
 
-    function renderDs(items, states) {
+    function renderDs(items, states, sensors) {
         var grid = document.getElementById('ds-grid');
         grid.innerHTML = '';
         /* stale inputs per item output id, written by the adapter (alive timeout of the item) */
@@ -997,7 +997,9 @@
             } else {
                 valEl.textContent = valText;
             }
-            var itemTimeoutMin = Number(item.aliveTimeoutMinutes) || 0;
+            /* a sensor takes precedence: an item used by an enabled sensor is monitored by that sensor */
+            var usedBySensor = (sensors || []).some(function (sn) { return sn && sn.enabled && sn.sourceState === sid; });
+            var itemTimeoutMin = usedBySensor ? 0 : Number(item.aliveTimeoutMinutes) || 0;
             var itemStaleInputs = itemTimeoutMin > 0 ? staleItemInputs[sid.slice((NS + '.ds.').length)] : null;
             var hasItemStale = Array.isArray(itemStaleInputs) && itemStaleInputs.length > 0;
             if (hasVal && hasItemStale) valEl.style.color = 'var(--color-warning)';
@@ -1079,7 +1081,7 @@
 
         if (config.enableDataSolectrus) {
             document.getElementById('tab-ds-btn').style.display = '';
-            renderDs(config.dsItems, states);
+            renderDs(config.dsItems, states, config.sensors);
         } else {
             document.getElementById('tab-ds-btn').style.display = 'none';
             /* if Formula Engine tab was active, switch back to InfluxDB tab */

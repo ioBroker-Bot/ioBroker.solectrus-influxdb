@@ -343,5 +343,5 @@
     "inputMonitoringLabel": "Alive",
     "inputMonitoringTooltip": "Deze invoer bewaken met de alive-time-out van de sensor die deze waarde gebruikt. Uitschakelen voor invoer die alleen bij wijziging wordt geschreven. De waarde wordt nog steeds in de berekening gebruikt.",
     "sourceMonitoringLabel": "Bronstatus bewaken met de alive-time-out van de sensor",
-    "formulaAliveTimeoutHint": "Bewaakt de invoer van deze waarde, ook als geen sensor deze gebruikt (interne waarde). Wordt een invoer niet binnen de time-out bijgewerkt, dan wordt een waarschuwing gelogd en de waarde in het overzicht gemarkeerd. Invoer met \"Alive\" uitgeschakeld wordt niet bewaakt. 0 = uitgeschakeld."
+    "formulaAliveTimeoutHint": "Bewaakt de invoer van deze waarde, ook als geen sensor deze gebruikt (interne waarde). Wordt een invoer niet binnen de time-out bijgewerkt, dan wordt een waarschuwing gelogd en de waarde in het overzicht gemarkeerd. Invoer met \"Alive\" uitgeschakeld wordt niet bewaakt. 0 = uitgeschakeld. Als een actieve sensor deze waarde gebruikt, geldt alleen de time-out van de sensor."
 }
