@@ -65,7 +65,7 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.2.0 (2026-10-13)
 * (patricknitsch) Alive monitoring of sensors fed by the formula engine now also checks the input values of the formula; stale inputs are marked in the overview tab
 
 ### 2.1.0 (2026-10-12)
@@ -94,11 +94,6 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 
 ### 1.12.0 (2026-07-08)
 * (patricknitsch) Final Release
-
-### 1.12.0-beta.1 (2026-07-08)
-* (patricknitsch) Fix `npm run check` (tsc type-checking of the JSDoc-typed JS codebase) so it passes cleanly again
-* (patricknitsch) Improve JSDoc type coverage across `dsProxy.js`, `jsonpath.js`, `stateMachine.js` and `helpers.js`
-* (patricknitsch) Resolve all remaining ESLint JSDoc warnings (`npm run lint` is now warning-free)
 
 **Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
 
