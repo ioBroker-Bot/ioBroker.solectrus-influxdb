@@ -997,9 +997,15 @@
             } else {
                 valEl.textContent = valText;
             }
-            /* a sensor takes precedence: an item used by an enabled sensor is monitored by that sensor */
+            /* a sensor takes precedence: an item used by an enabled sensor is monitored with the
+               timeout of that sensor (the adapter lists the stale inputs the sensor found) */
+            var usingSensors = (sensors || []).filter(function (sn) {
+                return sn && sn.enabled && sn.sourceState === sid && Number(sn.aliveTimeoutMinutes) > 0;
+            });
             var usedBySensor = (sensors || []).some(function (sn) { return sn && sn.enabled && sn.sourceState === sid; });
-            var itemTimeoutMin = usedBySensor ? 0 : Number(item.aliveTimeoutMinutes) || 0;
+            var itemTimeoutMin = usedBySensor
+                ? (usingSensors.length ? Number(usingSensors[0].aliveTimeoutMinutes) : 0)
+                : Number(item.aliveTimeoutMinutes) || 0;
             var itemStaleInputs = itemTimeoutMin > 0 ? staleItemInputs[sid.slice((NS + '.ds.').length)] : null;
             var hasItemStale = Array.isArray(itemStaleInputs) && itemStaleInputs.length > 0;
             if (hasVal && hasItemStale) valEl.style.color = 'var(--color-warning)';
@@ -1041,7 +1047,8 @@
                     itemLeftSpan.textContent = T.lastUpdate + ' ' + new Date(state.ts).toLocaleString();
                     var itemRightSpan = document.createElement('span');
                     itemRightSpan.className = 'sensor-type-badge';
-                    itemRightSpan.textContent = T.inputTimeout + ' ' + itemTimeoutMin + ' min';
+                    itemRightSpan.textContent = T.inputTimeout + ' ' + itemTimeoutMin + ' min' +
+                        (usingSensors.length ? ' (' + usingSensors[0].SensorName + ')' : '');
                     if (hasItemStale) itemRightSpan.style.color = 'var(--color-warning)';
                     tsEl.appendChild(itemLeftSpan);
                     tsEl.appendChild(itemRightSpan);
