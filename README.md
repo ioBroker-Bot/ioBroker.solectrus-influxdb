@@ -71,7 +71,6 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 * (patricknitsch) Alive monitoring of sensors fed by the formula engine now also checks the input values of the formula; stale inputs are marked in the overview tab
 
 ### 2.1.0 (2026-10-12)
-
 * (patricknitsch) Add new SOLECTRUS car sensors for multiple vehicles (`CAR_BATTERY_SOC`, `CAR_ODOMETER`, `CAR_RANGE`, `CAR_CONNECTED`, `CAR_LATITUDE`, `CAR_LONGITUDE`, suffix `_1`–`_5`) (#209 and #212)
 * (patricknitsch) Default sensors are sorted into the folders of the HELIOS sensor overview
 * (patricknitsch) New default sensors are added disabled to existing instances on start; deleted ones do not come back
@@ -97,11 +96,6 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 
 ### 1.12.0 (2026-07-08)
 * (patricknitsch) Final Release
-
-### 1.12.0-beta.1 (2026-07-08)
-* (patricknitsch) Fix `npm run check` (tsc type-checking of the JSDoc-typed JS codebase) so it passes cleanly again
-* (patricknitsch) Improve JSDoc type coverage across `dsProxy.js`, `jsonpath.js`, `stateMachine.js` and `helpers.js`
-* (patricknitsch) Resolve all remaining ESLint JSDoc warnings (`npm run lint` is now warning-free)
 
 **Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
 
