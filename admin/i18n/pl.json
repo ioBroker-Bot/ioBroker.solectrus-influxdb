@@ -341,7 +341,7 @@
     "writeOnChangeLabel": "Zapisuj tylko przy zmianie, z czasem zmiany",
     "writeOnChangeHint": "Dla rzadko zmieniających się wartości, np. danych samochodu: wartość jest zapisywana przy każdej zmianie stanu źródłowego, a nie w interwale zbierania, i otrzymuje czas zmiany zamiast bieżącego czasu. Źródło powtarzające tę samą wartość nie dodaje punktu.",
     "inputMonitoringLabel": "Alive",
-    "inputMonitoringTooltip": "Monitoruj to wejście limitem czasu aktywności czujnika, który używa tej wartości. Wyłącz dla wejść zapisywanych tylko przy zmianie. Wartość jest nadal używana w obliczeniach.",
-    "sourceMonitoringLabel": "Monitoruj stan źródłowy limitem czasu aktywności czujnika",
-    "formulaAliveTimeoutHint": "Monitoruje wejścia tej wartości, także gdy nie używa jej żaden czujnik (wartość wewnętrzna). Jeśli wejście nie zostanie zaktualizowane w limicie czasu, zapisywane jest ostrzeżenie, a wartość jest oznaczana w przeglądzie. Wejścia z wyłączonym „Alive” nie są monitorowane. 0 = wyłączone. Jeśli aktywny czujnik używa tej wartości, obowiązuje tylko limit czasu czujnika."
+    "inputMonitoringTooltip": "Monitoruj to wejście limitem czasu aktywności. Wyłącz dla wejść zapisywanych tylko przy zmianie; wartość jest nadal używana w obliczeniach.",
+    "sourceMonitoringLabel": "Monitoruj stan źródłowy (Alive)",
+    "formulaAliveTimeoutHint": "Monitoruje wejścia tej wartości. Jeśli używa jej aktywny czujnik, obowiązuje jego limit czasu. 0 = wyłączone."
 }

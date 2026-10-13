@@ -341,7 +341,7 @@
     "writeOnChangeLabel": "Scrivi solo in caso di modifica, con l'ora della modifica",
     "writeOnChangeHint": "Per valori che cambiano raramente, come i dati di un'auto: un valore viene scritto ogni volta che lo stato sorgente cambia, non nell'intervallo di raccolta, e riceve l'ora della modifica invece dell'ora corrente. Una sorgente che ripete lo stesso valore non aggiunge alcun punto.",
     "inputMonitoringLabel": "Alive",
-    "inputMonitoringTooltip": "Monitora questo input con il timeout di attività del sensore che usa questo valore. Disattivalo per gli input scritti solo in caso di modifica. Il valore viene comunque usato nel calcolo.",
-    "sourceMonitoringLabel": "Monitora lo stato sorgente con il timeout di attività del sensore",
-    "formulaAliveTimeoutHint": "Monitora gli input di questo valore, anche se nessun sensore lo usa (valore interno). Se un input non viene aggiornato entro il timeout, viene registrato un avviso e il valore viene evidenziato nella panoramica. Gli input con \"Alive\" disattivato non vengono monitorati. 0 = disattivato. Se un sensore attivo usa questo valore, vale solo il timeout del sensore."
+    "inputMonitoringTooltip": "Monitora questo input con il timeout di attività. Disattivalo per gli input scritti solo in caso di modifica; il valore viene comunque usato nel calcolo.",
+    "sourceMonitoringLabel": "Monitora stato sorgente (Alive)",
+    "formulaAliveTimeoutHint": "Monitora gli input di questo valore. Se un sensore attivo usa questo valore, vale il suo timeout. 0 = disattivato."
 }
