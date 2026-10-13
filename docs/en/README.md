@@ -474,6 +474,12 @@ Sensor "INVERTER_POWER": no update since 4/5/2026, 6:30:00 PM (longer than 60 mi
 
 In addition, the last timestamp of the affected sensor is shown in **orange** in the **tab view**, so you can spot stale sensors at a glance without opening the log.
 
+If the source of a sensor is a formula engine state (`ds.*`), all inputs of that item are monitored with the same timeout as well – including the inputs of nested formula items. The formula state itself is recalculated on every tick and would otherwise always look up to date, even if an input value has stopped updating. The warning names the sensor and the affected input:
+
+```
+Sensor "HOUSE_POWER → modbus.0.inputRegisters.grid": no update since 4/5/2026, 6:30:00 PM (update expected by 4/5/2026, 7:30:00 PM)
+```
+
 The warning is repeated at most once per timeout period per sensor to avoid log flooding. Set the timeout to `0` to disable the check for an individual sensor (Expert Mode only). Newly created sensors default to a timeout of `60` minutes. The timeout must be greater than the update interval of the respective source adapter.
 
 ### Value Monitoring (Max Value)

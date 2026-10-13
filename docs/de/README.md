@@ -474,6 +474,12 @@ Sensor "INVERTER_POWER": no update since 4/5/2026, 6:30:00 PM (longer than 60 mi
 
 Zusätzlich wird der letzte Zeitstempel des betroffenen Sensors im **Tab** in **orange** angezeigt, sodass du veraltete Sensoren auf einen Blick erkennst, ohne das Log zu öffnen.
 
+Ist die Quelle eines Sensors ein Datenpunkt der Formel-Engine (`ds.*`), werden zusätzlich alle Eingänge dieses Datenpunkts mit demselben Timeout überwacht – auch die Eingänge von verschachtelten Formel-Datenpunkten. Der Formel-Datenpunkt selbst wird bei jedem Durchlauf neu berechnet und wäre sonst immer aktuell, auch wenn ein Eingangswert längst nicht mehr aktualisiert wird. Die Warnung nennt den Sensor und den betroffenen Eingang:
+
+```
+Sensor "HOUSE_POWER → modbus.0.inputRegisters.grid": no update since 4/5/2026, 6:30:00 PM (update expected by 4/5/2026, 7:30:00 PM)
+```
+
 Die Warnung wird pro Sensor höchstens einmal pro Timeout-Periode wiederholt, damit das Log nicht überflutet wird. Setze den Timeout auf `0`, um die Prüfung für einen einzelnen Sensor zu deaktivieren (nur im Expertenmodus). Neu angelegte Sensoren haben standardmäßig einen Timeout von `60` Minuten. Der Timeout muss größer sein als das Aktualisierungsintervall des jeweiligen Quelladapters.
 
 ### Werteüberwachung (Maximalwert)
