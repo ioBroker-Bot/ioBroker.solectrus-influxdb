@@ -3128,6 +3128,27 @@ export default function DataSolectrusItemsEditor(props) {
 											),
 											React.createElement(
 												'label',
+												{
+													style: {
+														display: 'flex',
+														alignItems: 'center',
+														gap: 6,
+														marginTop: 6,
+														fontSize: 12,
+														color: colors.textMuted,
+														cursor: 'pointer',
+													},
+													title: t('inputMonitoringTooltip'),
+												},
+												React.createElement('input', {
+													type: 'checkbox',
+													checked: !selectedItem.noMonitoring,
+													onChange: e => updateSelected('noMonitoring', !e.target.checked),
+												}),
+												React.createElement('span', null, t('sourceMonitoringLabel')),
+											),
+											React.createElement(
+												'label',
 												{ style: labelStyle },
 												t('JSONPath (optional)'),
 											),
@@ -3243,6 +3264,31 @@ export default function DataSolectrusItemsEditor(props) {
 																			),
 																	}),
 																	React.createElement('span', null, 'neg→0'),
+																),
+																React.createElement(
+																	'label',
+																	{
+																		style: {
+																			display: 'flex',
+																			alignItems: 'center',
+																			gap: 6,
+																			fontSize: 11,
+																			color: colors.textMuted,
+																			cursor: 'pointer',
+																		},
+																		title: t('inputMonitoringTooltip'),
+																	},
+																	React.createElement('input', {
+																		type: 'checkbox',
+																		checked: !(inp && inp.noMonitoring),
+																		onChange: e =>
+																			updateInput(
+																				idx,
+																				'noMonitoring',
+																				!e.target.checked,
+																			),
+																	}),
+																	React.createElement('span', null, t('inputMonitoringLabel')),
 																),
 																renderSelectButton(() =>
 																	setSelectContext({ kind: 'input', index: idx }),
@@ -3780,6 +3826,31 @@ export default function DataSolectrusItemsEditor(props) {
 																			),
 																	}),
 																	React.createElement('span', null, 'neg→0'),
+																),
+																React.createElement(
+																	'label',
+																	{
+																		style: {
+																			display: 'flex',
+																			alignItems: 'center',
+																			gap: 6,
+																			fontSize: 11,
+																			color: colors.textMuted,
+																			cursor: 'pointer',
+																		},
+																		title: t('inputMonitoringTooltip'),
+																	},
+																	React.createElement('input', {
+																		type: 'checkbox',
+																		checked: !(inp && inp.noMonitoring),
+																		onChange: e =>
+																			updateInput(
+																				idx,
+																				'noMonitoring',
+																				!e.target.checked,
+																			),
+																	}),
+																	React.createElement('span', null, t('inputMonitoringLabel')),
 																),
 																renderSelectButton(() =>
 																	setSelectContext({ kind: 'input', index: idx }),

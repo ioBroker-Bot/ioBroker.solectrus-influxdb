@@ -339,5 +339,8 @@
     "Electric Car 4": "Elektrische auto 4",
     "Electric Car 5": "Elektrische auto 5",
     "writeOnChangeLabel": "Alleen bij wijziging schrijven, met het tijdstip van de wijziging",
-    "writeOnChangeHint": "Voor waarden die zelden veranderen, zoals de gegevens van een auto: een waarde wordt geschreven zodra de bronstatus verandert, niet in het verzamelinterval, en krijgt het tijdstip van de wijziging in plaats van de huidige tijd. Een bron die dezelfde waarde herhaalt, voegt geen punt toe."
+    "writeOnChangeHint": "Voor waarden die zelden veranderen, zoals de gegevens van een auto: een waarde wordt geschreven zodra de bronstatus verandert, niet in het verzamelinterval, en krijgt het tijdstip van de wijziging in plaats van de huidige tijd. Een bron die dezelfde waarde herhaalt, voegt geen punt toe.",
+    "inputMonitoringLabel": "Alive",
+    "inputMonitoringTooltip": "Deze invoer bewaken met de alive-time-out van de sensor die deze waarde gebruikt. Uitschakelen voor invoer die alleen bij wijziging wordt geschreven. De waarde wordt nog steeds in de berekening gebruikt.",
+    "sourceMonitoringLabel": "Bronstatus bewaken met de alive-time-out van de sensor"
 }

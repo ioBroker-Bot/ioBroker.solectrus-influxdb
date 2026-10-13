@@ -482,6 +482,8 @@ Sensor "HOUSE_POWER → modbus.0.inputRegisters.grid": no update since 4/5/2026,
 
 Im **Tab** wird die Sensorkarte dann ebenfalls **orange** markiert und jeder betroffene Eingang mit seinem letzten Zeitstempel aufgeführt (*Eingang ohne Aktualisierung*). Die Liste der veralteten Eingänge steht außerdem als JSON im State `solectrus-influxdb.X.info.staleInputs`.
 
+Ein veralteter Eingang wird trotzdem weiter in der Berechnung verwendet – die Formel-Engine rechnet mit dem zuletzt empfangenen Wert. Eingänge, die nur bei Änderung geschrieben werden (z. B. ein Zählerstand oder ein Status), würden sonst ständig gemeldet. Deshalb kann die Überwachung in der Formel-Engine **pro Eingang** über die Checkbox **Alive** abgeschaltet werden (bei Datenpunkten im Modus *Quelle* über **Quell-State mit dem Alive-Timeout des Sensors überwachen**). Standard: eingeschaltet. Ist ein ausgeschalteter Eingang selbst ein Formel-Datenpunkt, werden auch dessen Eingänge nicht überwacht. Werte, die nur über `s()`/`v()`/`jp()` in der Formel stehen und nicht als Eingang angelegt sind, werden immer überwacht.
+
 Die Warnung wird pro Sensor höchstens einmal pro Timeout-Periode wiederholt, damit das Log nicht überflutet wird. Setze den Timeout auf `0`, um die Prüfung für einen einzelnen Sensor zu deaktivieren (nur im Expertenmodus). Neu angelegte Sensoren haben standardmäßig einen Timeout von `60` Minuten. Der Timeout muss größer sein als das Aktualisierungsintervall des jeweiligen Quelladapters.
 
 ### Werteüberwachung (Maximalwert)

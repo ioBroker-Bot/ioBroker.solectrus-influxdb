@@ -339,5 +339,8 @@
     "Electric Car 4": "Samochód elektryczny 4",
     "Electric Car 5": "Samochód elektryczny 5",
     "writeOnChangeLabel": "Zapisuj tylko przy zmianie, z czasem zmiany",
-    "writeOnChangeHint": "Dla rzadko zmieniających się wartości, np. danych samochodu: wartość jest zapisywana przy każdej zmianie stanu źródłowego, a nie w interwale zbierania, i otrzymuje czas zmiany zamiast bieżącego czasu. Źródło powtarzające tę samą wartość nie dodaje punktu."
+    "writeOnChangeHint": "Dla rzadko zmieniających się wartości, np. danych samochodu: wartość jest zapisywana przy każdej zmianie stanu źródłowego, a nie w interwale zbierania, i otrzymuje czas zmiany zamiast bieżącego czasu. Źródło powtarzające tę samą wartość nie dodaje punktu.",
+    "inputMonitoringLabel": "Alive",
+    "inputMonitoringTooltip": "Monitoruj to wejście limitem czasu aktywności czujnika, który używa tej wartości. Wyłącz dla wejść zapisywanych tylko przy zmianie. Wartość jest nadal używana w obliczeniach.",
+    "sourceMonitoringLabel": "Monitoruj stan źródłowy limitem czasu aktywności czujnika"
 }

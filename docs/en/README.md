@@ -482,6 +482,8 @@ Sensor "HOUSE_POWER → modbus.0.inputRegisters.grid": no update since 4/5/2026,
 
 In the **tab view**, the sensor card is then marked **orange** as well and each affected input is listed with its last timestamp (*Input without update*). The list of stale inputs is also available as JSON in the state `solectrus-influxdb.X.info.staleInputs`.
 
+A stale input is still used in the calculation – the formula engine uses the last received value. Inputs that are only written on change (e.g. a meter reading or a status) would otherwise be reported all the time. That is why monitoring can be turned off **per input** in the formula engine with the **Alive** checkbox (for items in *Source* mode with **Monitor source state with the alive timeout of the sensor**). Default: on. If an input with monitoring turned off is itself a formula item, its inputs are not monitored either. Values that are only referenced via `s()`/`v()`/`jp()` in the formula and not set up as an input are always monitored.
+
 The warning is repeated at most once per timeout period per sensor to avoid log flooding. Set the timeout to `0` to disable the check for an individual sensor (Expert Mode only). Newly created sensors default to a timeout of `60` minutes. The timeout must be greater than the update interval of the respective source adapter.
 
 ### Value Monitoring (Max Value)
